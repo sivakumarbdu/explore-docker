@@ -1,4 +1,4 @@
-## Rails with RSPEC
+## Build container with following
 
 * Rails
 * Rspec
