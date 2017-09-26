@@ -18,7 +18,6 @@ mydb:
   # volumes:
     # - ./postgres-data:/var/lib/postgresql/data:z
 myweb:
- # image: lmimage
   build: .
   command: ./start.sh
   privileged: true
@@ -31,7 +30,7 @@ myweb:
     - LANG=C.UTF-8
   links:
     - mydb
-    - rediserverlm
+    - myrediserver
     - elasticsearch
   volumes:
     - .:/myapp
@@ -41,7 +40,7 @@ myweb:
   ports:
     - "3000"
     - "4444:4444"
-rediserverlm:
+myrediserver:
   image: redis
   ports:
     - "6379:6379"
@@ -51,7 +50,7 @@ bundle:
   # before this works.
   image: ubuntu
   volumes:
-    - "~/volumes/lmbundle:/bundle"
+    - "~/volumes/mybundle:/bundle"
 elasticsearch:
   image: docker.elastic.co/elasticsearch/elasticsearch:5.5.1
   ports:
