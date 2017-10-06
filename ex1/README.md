@@ -8,3 +8,4 @@
 * kibana
 * filebeats
 * metabase
+* XVFB
